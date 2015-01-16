@@ -32,9 +32,12 @@ var basepath = settings.imports.openstreetmap.datapath;
 var filename = settings.imports.openstreetmap.import[0].filename;
 var leveldbpath = settings.imports.openstreetmap.leveldbpath;
 
-// testing
-// basepath = '/media/hdd/osm/mapzen-metro';
-// filename = 'wellington.osm.pbf';
+var args = process.argv.slice(2);
+if(args.length>0) {
+  // import from commandline args
+  basepath = args[0];
+  filename = args[1];
+}
 
 var pbfFilePath = basepath + '/' + filename;
 // check pbf file exists
